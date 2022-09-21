@@ -1,16 +1,16 @@
+import { Route, Routes } from 'react-router-dom';
+import { AppBar } from './AppBar/NavBar';
+import { Trendings } from './TrendList/TrendList';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Routes>
+        <Route exact path="/" element={<AppBar />}>
+          <Route index element={<Trendings />} />
+          <Route path="films" element={<div>Films</div>} />
+        </Route>
+      </Routes>
+    </>
   );
 };
