@@ -3,7 +3,7 @@ import { Link, Nav, StyledHeader } from './NavBar.styled';
 
 const navItems = [
   { href: '/', text: 'Home' },
-  { href: 'films', text: 'Films' },
+  { href: 'movies', text: 'Films' },
 ];
 
 export const AppBar = () => {
@@ -12,7 +12,7 @@ export const AppBar = () => {
       <StyledHeader>
         <Nav>
           {navItems.map(({ href, text }) => (
-            <Link end key={href} to={href}>
+            <Link key={href} to={href}>
               {text}
             </Link>
           ))}
