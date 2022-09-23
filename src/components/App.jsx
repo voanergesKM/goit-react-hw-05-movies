@@ -3,7 +3,7 @@ import { Layout } from './Layout/LayoutContaineer';
 
 import { Trendings } from 'pages/TrendingsPage/TrendingsList';
 import { Movies } from 'pages/Movies/MoviesList';
-import { MovieDetails } from './MovieDetails/Details';
+import { MovieDetails } from '../pages/MovieDetails/Details';
 import { Cast } from './Cast/FilmsCast';
 import { Reviews } from './Reviews/MovieRewiev';
 
