@@ -30,7 +30,7 @@ export const Title = styled.h2`
 export const UsersScore = styled.p`
   display: flex;
   gap: 6px;
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 8px;
 `;
 
@@ -41,7 +41,7 @@ export const DescriptionTitle = styled.h3`
 
 export const DescriptionText = styled.p`
   font-size: 16px;
-
+  line-height: 1.5;
   margin-left: 8px;
   max-width: 600px;
 `;

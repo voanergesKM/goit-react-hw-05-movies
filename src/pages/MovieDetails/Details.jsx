@@ -21,6 +21,7 @@ const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const navItems = [
   { href: 'cast', text: 'Cast' },
   { href: 'reviews', text: 'Rewievs' },
+  { href: 'posters', text: 'Backdrops' },
 ];
 
 export const MovieDetails = () => {

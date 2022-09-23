@@ -40,3 +40,11 @@ export const getMovieRewievsById = async filmId => {
 
   return response.data;
 };
+
+export const getFilmPostersById = async filmId => {
+  const response = await axios.get(
+    `/movie/${filmId}/images?api_key=${API_KEY}`
+  );
+
+  return response.data;
+};

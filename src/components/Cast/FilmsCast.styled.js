@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledList = styled.ul`
-  list-style: none;
-
   display: grid;
   grid-template-columns: repeat(auto-fill, 255px);
   gap: 12px;
@@ -17,6 +15,7 @@ export const StyledItem = styled.li`
 
 export const Photo = styled.img`
   margin-bottom: 8px;
+  width: 100px;
 `;
 
 export const Description = styled.p`

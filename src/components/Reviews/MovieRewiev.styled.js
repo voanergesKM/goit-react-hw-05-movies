@@ -5,6 +5,7 @@ export const StyledRewievTitle = styled.h4`
 `;
 export const StyledRewiev = styled.p`
   line-height: 1.5;
+  margin-left: 16px;
 `;
 
 export const RewievItem = styled.li`

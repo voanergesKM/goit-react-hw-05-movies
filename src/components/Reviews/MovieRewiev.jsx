@@ -25,12 +25,8 @@ export const Reviews = () => {
     <ul>
       {rewievs.map(({ id, author, content }) => (
         <RewievItem key={id}>
-          <StyledRewievTitle>
-            <b>Author name:</b> {author}{' '}
-          </StyledRewievTitle>
-          <StyledRewiev>
-            <b>Rewiev:</b> {content}
-          </StyledRewiev>
+          <StyledRewievTitle>Author name: {author} </StyledRewievTitle>
+          <StyledRewiev>{content}</StyledRewiev>
         </RewievItem>
       ))}
     </ul>
