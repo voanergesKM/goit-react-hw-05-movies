@@ -1,13 +1,19 @@
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getFilmsDetailsById } from 'components/TheMoviesApi/MoviesAPI';
 import {
   Description,
   DescriptionWrapper,
+  Poster,
   Title,
   DescriptionTitle,
   UsersScore,
   DescriptionText,
+  AditionalWrapper,
+  AditionaNavlList,
+  AditionalNavItem,
+  AditionalNavLink,
+  AditionalTitle,
 } from './Details.styled';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
@@ -40,10 +46,10 @@ export const MovieDetails = () => {
   return (
     <main>
       <Description>
-        <img
+        <Poster
           src={`${BASE_IMG_URL}${poster_path}`}
           alt={title}
-          width="320px"
+          width="240px"
           height="auto"
         />
         <DescriptionWrapper>
@@ -60,17 +66,17 @@ export const MovieDetails = () => {
           <DescriptionText>{genreList.join(', ')}</DescriptionText>
         </DescriptionWrapper>
       </Description>
-      <div>
-        <p>Aditional information</p>
-        <ul>
+      <AditionalWrapper>
+        <AditionalTitle>Aditional information</AditionalTitle>
+        <AditionaNavlList>
           {navItems.map(({ href, text }) => (
-            <li key={href}>
-              <Link to={href}>{text}</Link>
-            </li>
+            <AditionalNavItem key={href}>
+              <AditionalNavLink to={href}>{text}</AditionalNavLink>
+            </AditionalNavItem>
           ))}
-        </ul>
-      </div>
-      <Outlet />
+        </AditionaNavlList>
+        <Outlet />
+      </AditionalWrapper>
     </main>
   );
 };

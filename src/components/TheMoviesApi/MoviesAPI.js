@@ -30,7 +30,7 @@ export const getMovieCreditsById = async filmId => {
     `/movie/${filmId}/credits?api_key=${API_KEY}&language=en-US`
   );
 
-  return response.data.cast;
+  return response.data;
 };
 
 export const getMovieRewievsById = async filmId => {
