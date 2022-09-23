@@ -1,28 +1,37 @@
-import { getMovieRewievsById } from 'components/TheMoviesApi/MoviesAPI';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { StyledRewiev, StyledRewievTitle } from './MovieRewiev.styled';
+import {
+  StyledRewiev,
+  StyledRewievTitle,
+  RewievItem,
+} from './MovieRewiev.styled';
+import { getMovieRewievsById } from 'components/TheMoviesApi/MoviesAPI';
 
 export const Reviews = () => {
   const [rewievs, setRewievs] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
-    getMovieRewievsById(movieId).then(setRewievs);
+    getMovieRewievsById(movieId)
+      .then(({ results }) => setRewievs(results))
+      .catch(error => console.log(error));
   }, [movieId]);
 
   if (rewievs.length === 0) {
-    return <p>We don't have any rewiews for this movie</p>;
+    return <p>We don't have any rewievs for this movie</p>;
   }
 
   return (
     <ul>
       {rewievs.map(({ id, author, content }) => (
-        <li key={id}>
-          <StyledRewievTitle>{author} </StyledRewievTitle>
-          <StyledRewiev>{content}</StyledRewiev>
-        </li>
+        <RewievItem key={id}>
+          <StyledRewievTitle>
+            <b>Author name:</b> {author}{' '}
+          </StyledRewievTitle>
+          <StyledRewiev>
+            <b>Rewiev:</b> {content}
+          </StyledRewiev>
+        </RewievItem>
       ))}
     </ul>
   );

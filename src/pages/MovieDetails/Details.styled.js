@@ -54,12 +54,12 @@ export const AditionalWrapper = styled.div`
 
 export const AditionalTitle = styled.h3`
   font-size: 18px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   margin-left: 8px;
 `;
 
 export const AditionaNavlList = styled.ul`
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   display: flex;
   list-style: none;
   gap: 16px;
