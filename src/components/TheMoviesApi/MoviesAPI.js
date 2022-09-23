@@ -6,7 +6,8 @@ const API_KEY = '95f6ab543b8413111ce7e57b1a77d9dc';
 export const getTrandings = async () => {
   const response = await axios.get(`/trending/movie/day?api_key=${API_KEY}`);
 
-  return response.data.results;
+  console.log('getTrandings : response.data', response.data);
+  return response.data;
 };
 
 export const getFilmsByKeywords = async query => {
@@ -22,7 +23,6 @@ export const getFilmsDetailsById = async filmId => {
     `/movie/${filmId}?api_key=${API_KEY}&language=en-US`
   );
 
-  console.log(response.data);
   return response.data;
 };
 

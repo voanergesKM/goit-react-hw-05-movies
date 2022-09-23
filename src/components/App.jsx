@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/LayoutContaineer';
 
-import { Trendings } from '../pages/Home/HomeList';
+import { Trendings } from 'pages/TrendingsPage/TrendingsList';
 import { Movies } from 'pages/Movies/MoviesList';
 import { MovieDetails } from './MovieDetails/Details';
 import { Cast } from './Cast/FilmsCast';

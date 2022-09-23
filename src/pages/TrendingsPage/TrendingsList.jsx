@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { StyledItem, StyledList } from './HomeList.styled';
+import {
+  StyledItem,
+  StyledList,
+  StyledLink,
+  Title,
+} from './TrendingsList.styled';
 import { getTrandings } from 'components/TheMoviesApi/MoviesAPI';
 
 export const Trendings = () => {
@@ -8,24 +12,26 @@ export const Trendings = () => {
 
   useEffect(() => {
     getTrandings()
-      .then(setTrendings)
+      .then(({ results }) => setTrendings(results))
       .catch(error => console.log(error));
   }, []);
 
-  if (!trendings) {
+  if (trendings.length === 0) {
     return null;
   }
 
   return (
-    <>
-      <h1>Trending list</h1>
+    <main>
+      <Title>Trendings today</Title>
       <StyledList>
         {trendings.map(movie => (
           <StyledItem key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <StyledLink to={`/movies/${movie.id}`}>
+              {movie.title} ({movie.release_date.slice(0, 4)})
+            </StyledLink>
           </StyledItem>
         ))}
       </StyledList>
-    </>
+    </main>
   );
 };
