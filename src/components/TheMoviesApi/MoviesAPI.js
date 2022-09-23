@@ -11,20 +11,34 @@ export const getTrandings = async () => {
 
 export const getFilmsByKeywords = async query => {
   const response = await axios.get(
-    `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+    `/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
   );
 
-  console.log(
-    'getFilmsByKeywords : response.data.results',
-    response.data.results
-  );
   return response.data.results;
 };
 
 export const getFilmsDetailsById = async filmId => {
   const response = await axios.get(
-    `movie/${filmId}?api_key=${API_KEY}&language=en-US`
+    `/movie/${filmId}?api_key=${API_KEY}&language=en-US`
   );
 
+  console.log(response.data);
   return response.data;
+};
+
+export const getMovieCreditsById = async filmId => {
+  const response = await axios.get(
+    `/movie/${filmId}/credits?api_key=${API_KEY}&language=en-US`
+  );
+
+  console.log('getMovieCreditsById : response.data.cast', response.data.cast);
+  return response.data.cast;
+};
+
+export const getMovieRewievsById = async filmId => {
+  const response = await axios.get(
+    `/movie/${filmId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  );
+
+  return response.data.results;
 };

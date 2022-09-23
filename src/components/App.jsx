@@ -1,23 +1,23 @@
 import { Route, Routes } from 'react-router-dom';
-// import { AppBar } from './AppBar/NavBar';
 import { Layout } from './Layout/LayoutContaineer';
 
 import { Trendings } from '../pages/Home/HomeList';
 import { Movies } from 'pages/Movies/MoviesList';
 import { MovieDetails } from './MovieDetails/Details';
+import { Cast } from './Cast/FilmsCast';
+import { Reviews } from './Reviews/MovieRewiev';
 
 export const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Trendings />} />
-
-          <Route path="movies" element={<Movies />}></Route>
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
-          {/* <Route path="/" element={<AppBar />} />
-
-          <Route path="films" element={<div>Films</div>} /> */}
+          <Route index element={<Trendings />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
         </Route>
       </Routes>
     </>
