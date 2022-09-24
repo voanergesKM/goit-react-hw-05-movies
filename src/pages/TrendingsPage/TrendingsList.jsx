@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
-import {
-  StyledItem,
-  StyledList,
-  StyledLink,
-  Title,
-} from './TrendingsList.styled';
+import { Title } from './TrendingsList.styled';
 import { getTrandings } from 'components/TheMoviesApi/MoviesAPI';
+import { MoviesList } from 'components/MoviesList/List';
 
 export const Trendings = () => {
   const [trendings, setTrendings] = useState([]);
@@ -23,15 +19,7 @@ export const Trendings = () => {
   return (
     <main>
       <Title>Trendings today</Title>
-      <StyledList>
-        {trendings.map(movie => (
-          <StyledItem key={movie.id}>
-            <StyledLink to={`/movies/${movie.id}`}>
-              {movie.title} ({movie.release_date.slice(0, 4)})
-            </StyledLink>
-          </StyledItem>
-        ))}
-      </StyledList>
+      <MoviesList movies={trendings} />
     </main>
   );
 };

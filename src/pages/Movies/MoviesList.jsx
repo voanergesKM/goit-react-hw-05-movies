@@ -1,7 +1,8 @@
+import { MoviesList } from 'components/MoviesList/List';
 import { getFilmsByKeywords } from 'components/TheMoviesApi/MoviesAPI';
 import { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { StyledBtn, StyledInput } from './MoviesList.styled';
+import { Outlet } from 'react-router-dom';
+import { StyledBtn, StyledInput, SearchBar } from './MoviesList.styled';
 
 export const Movies = () => {
   const [searchQry, setSearchQry] = useState('');
@@ -24,19 +25,11 @@ export const Movies = () => {
 
   return (
     <>
-      <form onSubmit={onSearchFilm}>
+      <SearchBar onSubmit={onSearchFilm}>
         <StyledInput name="search" autoComplete="off" />
         <StyledBtn type="submit">Search</StyledBtn>
-      </form>
-      {filmList.length > 0 && (
-        <ul>
-          {filmList.map(film => (
-            <li key={film.id}>
-              <Link to={`${film.id}`}>{film.original_title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      </SearchBar>
+      {filmList.length > 0 && <MoviesList movies={filmList} />}
       <Outlet />
     </>
   );
