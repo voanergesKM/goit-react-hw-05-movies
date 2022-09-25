@@ -43,7 +43,7 @@ export const getMovieRewievsById = async filmId => {
 
 export const getFilmPostersById = async filmId => {
   const response = await axios.get(
-    `/movie/${filmId}/images?api_key=${API_KEY}`
+    `/movie/${filmId}/images?api_key=${API_KEY}&include_image_language=null,en-US`
   );
 
   return response.data;

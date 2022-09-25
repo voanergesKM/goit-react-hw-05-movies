@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImageItem, ImagesList } from './FilmPosters.styled';
 
-const BASE_IMG_URL = 'https://image.tmdb.org/t/p/original';
+const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 export const Posters = () => {
   const [images, setImages] = useState([]);
@@ -25,8 +25,9 @@ export const Posters = () => {
         <ImageItem key={file_path}>
           <img
             src={`${BASE_IMG_URL}${file_path}`}
-            alt="Film posters"
+            alt="Movie poster"
             width="320px"
+            loading="lazy"
           ></img>
         </ImageItem>
       ))}

@@ -1,8 +1,8 @@
-import { MoviesList } from 'components/MoviesList/List';
-import { getFilmsByKeywords } from 'components/TheMoviesApi/MoviesAPI';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { MoviesList } from 'components/MoviesList/List';
 import { StyledBtn, StyledInput, SearchBar } from './MoviesList.styled';
+import { getFilmsByKeywords } from 'components/TheMoviesApi/MoviesAPI';
 
 export const Movies = () => {
   const [searchQry, setSearchQry] = useState('');
