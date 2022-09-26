@@ -6,7 +6,6 @@ import {
   Description,
   DescriptionWrapper,
   Poster,
-  DescriptionText,
   AditionalWrapper,
   AditionaNavlList,
 } from './Details.styled';
