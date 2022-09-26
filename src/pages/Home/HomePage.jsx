@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Title } from './TrendingsList.styled';
 import { getTrandings } from 'components/TheMoviesApi/MoviesAPI';
 import { MoviesList } from 'components/MoviesList/List';
+import { MainTitle } from 'components/PageTitle/Titles';
 
-export const Trendings = () => {
+export const Home = () => {
   const [trendings, setTrendings] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,10 @@ export const Trendings = () => {
 
   return (
     <main>
-      <Title>Trendings today</Title>
+      <MainTitle
+        text={'Trendings today'}
+        style={{ marginBottom: '16px', marginLeft: '16px' }}
+      />
       <MoviesList movies={trendings} />
     </main>
   );

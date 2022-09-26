@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/LayoutContaineer';
-import { Trendings } from 'pages/TrendingsPage/TrendingsList';
-import { Movies } from 'pages/Movies/MoviesList';
+import { Home } from 'pages/Home/HomePage';
+import { Movies } from 'pages/Movies/MoviesPage';
 import { MovieDetails } from 'pages/MovieDetails/Details';
 import { Cast } from './Cast/FilmsCast';
 import { Reviews } from './Reviews/MovieRewiev';
@@ -12,7 +12,7 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Trendings />} />
+          <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />

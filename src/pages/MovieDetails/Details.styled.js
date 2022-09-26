@@ -25,22 +25,6 @@ export const Poster = styled.img`
   flex-shrink: 1;
 `;
 
-export const Title = styled.h2`
-  font-size: 24px;
-`;
-
-export const UsersScore = styled.p`
-  display: flex;
-  gap: 6px;
-  font-size: 16px;
-  margin-left: 8px;
-`;
-
-export const DescriptionTitle = styled.h3`
-  font-size: 18px;
-  margin-left: 8px;
-`;
-
 export const DescriptionText = styled.p`
   font-size: 16px;
   line-height: 1.5;
@@ -52,12 +36,6 @@ export const AditionalWrapper = styled.div`
   padding: 16px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-`;
-
-export const AditionalTitle = styled.h3`
-  font-size: 18px;
-  margin-bottom: 24px;
-  margin-left: 8px;
 `;
 
 export const AditionaNavlList = styled.ul`

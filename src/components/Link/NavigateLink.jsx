@@ -3,23 +3,27 @@ import { NavLinkStyled, LinkStyled } from './NavigateLink.styled';
 
 export const Link = ({ icon: Icon, text, location }) => {
   return (
-    <NavLinkStyled to={location}>
+    <LinkStyled to={location}>
       {Icon}
-      {text}
-    </NavLinkStyled>
-  );
-};
-
-export const NavLink = ({ text, location, end }) => {
-  return (
-    <LinkStyled end={end} to={location}>
       {text}
     </LinkStyled>
   );
 };
 
+export const NavLink = ({ text, location, end }) => {
+  return (
+    <NavLinkStyled end={end} to={location}>
+      {text}
+    </NavLinkStyled>
+  );
+};
+
 Link.propTypes = {
   text: PropTypes.string.isRequired,
-  // location: PropTypes.object,
-  Icon: PropTypes.node,
+  icon: PropTypes.node,
+};
+
+NavLink.propTypes = {
+  text: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 };

@@ -6,15 +6,17 @@ import {
   Description,
   DescriptionWrapper,
   Poster,
-  Title,
-  DescriptionTitle,
-  UsersScore,
   DescriptionText,
   AditionalWrapper,
   AditionaNavlList,
-  AditionalTitle,
 } from './Details.styled';
-import { Link } from 'components/Link/NavigateLink';
+import { Link, NavLink } from 'components/Link/NavigateLink';
+import {
+  DetailsTitle,
+  MainTitle,
+  Title,
+  Text,
+} from 'components/PageTitle/Titles';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -60,25 +62,22 @@ export const MovieDetails = () => {
           height="auto"
         />
         <DescriptionWrapper>
-          <Title>
-            {title} ({release_date.slice(0, 4)})
-          </Title>
-          <UsersScore>
-            User score:
+          <MainTitle text={`${title} (${release_date.slice(0, 4)})`} />
+          <Text text={'User score:'}>
             <span>{Number.parseInt(popularity)}%</span>
-          </UsersScore>
-          <DescriptionTitle>Overview</DescriptionTitle>
-          <DescriptionText>{overview}</DescriptionText>
-          <DescriptionTitle>Genres</DescriptionTitle>
-          <DescriptionText>{genreList.join(', ')}</DescriptionText>
+          </Text>
+          <DetailsTitle text={'Overview'} />
+          <Text text={overview} />
+          <DetailsTitle text={'Genres'} />
+          <Text text={genreList.join(', ')} />
         </DescriptionWrapper>
       </Description>
       <AditionalWrapper>
-        <AditionalTitle>Aditional information</AditionalTitle>
+        <Title text={'Aditional information'} />
         <AditionaNavlList>
           {navItems.map(({ href, text }) => (
             <li key={href}>
-              <Link location={href} text={text} />
+              <NavLink location={href} text={text} />
             </li>
           ))}
         </AditionaNavlList>
