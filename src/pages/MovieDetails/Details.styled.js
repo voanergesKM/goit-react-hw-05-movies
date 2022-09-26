@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Description = styled.div`
@@ -64,26 +63,5 @@ export const AditionalTitle = styled.h3`
 export const AditionaNavlList = styled.ul`
   margin-bottom: 24px;
   display: flex;
-  list-style: none;
   gap: 16px;
-`;
-
-export const AditionalNavItem = styled.li``;
-
-export const AditionalNavLink = styled(NavLink)`
-  padding: 8px 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-
-  &.active {
-    color: white;
-    background-color: orangered;
-  }
-
-  :hover:not(.active),
-  :focus-visible:not(.active) {
-    color: orangered;
-  }
 `;

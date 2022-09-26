@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavLinkStyled = styled(Link)`
@@ -14,6 +14,26 @@ export const NavLinkStyled = styled(Link)`
 
   :hover,
   :focus {
+    color: orangered;
+  }
+`;
+
+export const LinkStyled = styled(NavLink)`
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+
+  &.active {
+    color: white;
+    background-color: orangered;
+  }
+
+  transition: all 250ms linear;
+
+  :hover:not(.active),
+  :focus-visible:not(.active) {
     color: orangered;
   }
 `;

@@ -12,11 +12,9 @@ import {
   DescriptionText,
   AditionalWrapper,
   AditionaNavlList,
-  AditionalNavItem,
-  AditionalNavLink,
   AditionalTitle,
 } from './Details.styled';
-import { NavigateLink } from 'components/Link/NavigateLink';
+import { Link } from 'components/Link/NavigateLink';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -49,7 +47,7 @@ export const MovieDetails = () => {
 
   return (
     <main>
-      <NavigateLink
+      <Link
         location={location.state?.from ?? '/'}
         text={'Go back'}
         icon={<BiArrowBack />}
@@ -79,9 +77,9 @@ export const MovieDetails = () => {
         <AditionalTitle>Aditional information</AditionalTitle>
         <AditionaNavlList>
           {navItems.map(({ href, text }) => (
-            <AditionalNavItem key={href}>
-              <AditionalNavLink to={href}>{text}</AditionalNavLink>
-            </AditionalNavItem>
+            <li key={href}>
+              <Link location={href} text={text} />
+            </li>
           ))}
         </AditionaNavlList>
         <Outlet />

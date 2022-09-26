@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { NavLinkStyled } from './NavigateLink.styled';
+import { NavLinkStyled, LinkStyled } from './NavigateLink.styled';
 
-export const NavigateLink = ({ icon: Icon, text, location }) => {
+export const Link = ({ icon: Icon, text, location }) => {
   return (
     <NavLinkStyled to={location}>
       {Icon}
@@ -10,8 +10,16 @@ export const NavigateLink = ({ icon: Icon, text, location }) => {
   );
 };
 
-NavigateLink.propTypes = {
+export const NavLink = ({ text, location, end }) => {
+  return (
+    <LinkStyled end={end} to={location}>
+      {text}
+    </LinkStyled>
+  );
+};
+
+Link.propTypes = {
   text: PropTypes.string.isRequired,
-  location: PropTypes.object.isRequired,
+  // location: PropTypes.object,
   Icon: PropTypes.node,
 };
