@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { getFilmsDetailsById } from 'components/TheMoviesApi/MoviesAPI';
