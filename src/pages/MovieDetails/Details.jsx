@@ -2,22 +2,10 @@ import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { getFilmsDetailsById } from 'components/TheMoviesApi/MoviesAPI';
-import {
-  Description,
-  DescriptionWrapper,
-  Poster,
-  AditionalWrapper,
-  AditionaNavlList,
-} from './Details.styled';
+import { AditionalWrapper, AditionaNavlList } from './Details.styled';
 import { Link, NavLink } from 'components/Link/NavigateLink';
-import {
-  DetailsTitle,
-  MainTitle,
-  Title,
-  Text,
-} from 'components/PageTitle/Titles';
-
-const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
+import { DetailsTitle, Title } from 'components/PageTitle/Titles';
+import { Description } from 'components/Description/FilmDescription';
 
 const navItems = [
   { href: 'cast', text: 'Cast' },
@@ -37,14 +25,12 @@ export const MovieDetails = () => {
   }, [movieId]);
 
   if (!filmDetails) {
-    return <h2>We don't have any information about this movie</h2>;
+    return (
+      <DetailsTitle>
+        We don't have any information about this movie
+      </DetailsTitle>
+    );
   }
-
-  const { poster_path, title, release_date, popularity, overview, genres } =
-    filmDetails;
-  const genreList = [];
-
-  genres.forEach(({ name }) => genreList.push(name));
 
   return (
     <main>
@@ -53,24 +39,7 @@ export const MovieDetails = () => {
         text={'Go back'}
         icon={<BiArrowBack />}
       />
-      <Description>
-        <Poster
-          src={`${BASE_IMG_URL}${poster_path}`}
-          alt={title}
-          width="240px"
-          height="auto"
-        />
-        <DescriptionWrapper>
-          <MainTitle text={`${title} (${release_date.slice(0, 4)})`} />
-          <Text text={'User score:'}>
-            <span>{Number.parseInt(popularity)}%</span>
-          </Text>
-          <DetailsTitle text={'Overview'} />
-          <Text text={overview} />
-          <DetailsTitle text={'Genres'} />
-          <Text text={genreList.join(', ')} />
-        </DescriptionWrapper>
-      </Description>
+      <Description movie={filmDetails} />
       <AditionalWrapper>
         <Title text={'Aditional information'} />
         <AditionaNavlList>
