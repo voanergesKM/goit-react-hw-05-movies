@@ -27,6 +27,7 @@ export const Posters = () => {
             src={`${BASE_IMG_URL}${file_path}`}
             alt="Movie poster"
             width="320px"
+            height="190px"
             loading="lazy"
           ></img>
         </ImageItem>

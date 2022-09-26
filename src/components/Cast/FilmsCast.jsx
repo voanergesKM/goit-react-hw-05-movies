@@ -24,7 +24,8 @@ export const Cast = () => {
           <Photo
             src={`https://image.tmdb.org/t/p/w500${profile_path}`}
             alt={name}
-            width="80px"
+            width="100px"
+            height="150px"
             loading="lazy"
           />
           <Description>

@@ -25,6 +25,8 @@ export const Link = styled(NavLink)`
     background-color: orangered;
   }
 
+  transition: all 250ms linear;
+
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: orangered;

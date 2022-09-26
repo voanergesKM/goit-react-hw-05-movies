@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useSearchParams } from 'react-router-dom';
 import { MoviesList } from 'components/MoviesList/List';
 import { StyledBtn, StyledInput, SearchBar } from './MoviesList.styled';
 import { getFilmsByKeywords } from 'components/TheMoviesApi/MoviesAPI';
 
 export const Movies = () => {
-  const [searchQry, setSearchQry] = useState('');
   const [filmList, setFilmList] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const searchQry = searchParams.get('query');
 
   useEffect(() => {
-    if (searchQry === '') {
+    if (!searchQry) {
       return;
     }
     getFilmsByKeywords(searchQry).then(setFilmList);
@@ -19,7 +21,8 @@ export const Movies = () => {
     evt.preventDefault();
 
     const seacrhQry = evt.target.elements.search.value;
-    setSearchQry(seacrhQry.trim());
+    setSearchParams(seacrhQry !== '' ? { query: seacrhQry.trim() } : {});
+
     evt.target.reset();
   };
 

@@ -14,6 +14,9 @@ export const StyledItem = styled.li`
 export const StyledLink = styled(Link)`
   color: black;
   text-decoration: none;
+
+  transition: all 250ms linear;
+
   :hover,
   :focus {
     color: orangered;

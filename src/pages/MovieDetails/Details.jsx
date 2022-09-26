@@ -1,5 +1,6 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { BiArrowBack } from 'react-icons/bi';
 import { getFilmsDetailsById } from 'components/TheMoviesApi/MoviesAPI';
 import {
   Description,
@@ -15,6 +16,7 @@ import {
   AditionalNavLink,
   AditionalTitle,
 } from './Details.styled';
+import { NavigateLink } from 'components/Link/NavigateLink';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -27,6 +29,7 @@ const navItems = [
 export const MovieDetails = () => {
   const [filmDetails, setFilmDetails] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     getFilmsDetailsById(movieId)
@@ -46,6 +49,11 @@ export const MovieDetails = () => {
 
   return (
     <main>
+      <NavigateLink
+        location={location.state?.from ?? '/'}
+        text={'Go back'}
+        icon={<BiArrowBack />}
+      />
       <Description>
         <Poster
           src={`${BASE_IMG_URL}${poster_path}`}
