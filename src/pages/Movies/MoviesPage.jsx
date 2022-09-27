@@ -14,7 +14,9 @@ export const Movies = () => {
     if (!searchQry) {
       return;
     }
-    getFilmsByKeywords(searchQry).then(setFilmList);
+    getFilmsByKeywords(searchQry)
+      .then(({ results }) => setFilmList(results))
+      .catch(error => console.log(error));
   }, [searchQry]);
 
   const onSearchFilm = evt => {

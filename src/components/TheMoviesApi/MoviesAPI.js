@@ -14,7 +14,7 @@ export const getFilmsByKeywords = async query => {
     `/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
   );
 
-  return response.data.results;
+  return response.data;
 };
 
 export const getFilmsDetailsById = async filmId => {

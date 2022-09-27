@@ -1,17 +1,11 @@
-import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import { getFilmsDetailsById } from 'components/TheMoviesApi/MoviesAPI';
-import { AditionalWrapper, AditionaNavlList } from './Details.styled';
-import { Link, NavLink } from 'components/Link/NavigateLink';
-import { DetailsTitle, Title } from 'components/PageTitle/Titles';
+import { Link } from 'components/Link/NavigateLink';
+import { DetailsTitle } from 'components/PageTitle/Titles';
 import { Description } from 'components/Description/FilmDescription';
-
-const navItems = [
-  { href: 'cast', text: 'Cast' },
-  { href: 'reviews', text: 'Rewievs' },
-  { href: 'posters', text: 'Backdrops' },
-];
+import { Additional } from 'components/AdditionalInf/AdditionalInf';
 
 export const MovieDetails = () => {
   const [filmDetails, setFilmDetails] = useState(null);
@@ -39,18 +33,9 @@ export const MovieDetails = () => {
         text={'Go back'}
         icon={<BiArrowBack />}
       />
+
       <Description movie={filmDetails} />
-      <AditionalWrapper>
-        <Title text={'Aditional information'} />
-        <AditionaNavlList>
-          {navItems.map(({ href, text }) => (
-            <li key={href}>
-              <NavLink location={href} text={text} />
-            </li>
-          ))}
-        </AditionaNavlList>
-        <Outlet />
-      </AditionalWrapper>
+      <Additional />
     </main>
   );
 };

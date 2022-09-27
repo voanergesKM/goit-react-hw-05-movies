@@ -4,12 +4,13 @@ import { StyledItem, StyledLink, StyledList } from './List.styled';
 
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
+
   return (
     <StyledList>
       {movies.map(({ id, title, release_date }) => (
         <StyledItem key={id}>
           <StyledLink to={`/movies/${id}`} state={{ from: location }}>
-            {title} ({release_date.slice(0, 4)})
+            {title} {release_date && `(${release_date.slice(0, 4)})`}
           </StyledLink>
         </StyledItem>
       ))}
@@ -20,9 +21,9 @@ export const MoviesList = ({ movies }) => {
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      release_date: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      title: PropTypes.string,
+      release_date: PropTypes.string,
     })
   ),
 };
