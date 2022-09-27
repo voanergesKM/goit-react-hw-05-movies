@@ -6,8 +6,9 @@ import {
   RewievItem,
 } from './MovieRewiev.styled';
 import { getMovieRewievsById } from 'components/TheMoviesApi/MoviesAPI';
+import { Title } from 'components/PageTitle/Titles';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [rewievs, setRewievs] = useState([]);
   const { movieId } = useParams();
 
@@ -18,7 +19,7 @@ export const Reviews = () => {
   }, [movieId]);
 
   if (rewievs.length === 0) {
-    return <p>We don't have any rewievs for this movie</p>;
+    return <Title text={"We don't have any rewievs for this movie"} />;
   }
 
   return (
@@ -32,3 +33,5 @@ export const Reviews = () => {
     </ul>
   );
 };
+
+export default Reviews;

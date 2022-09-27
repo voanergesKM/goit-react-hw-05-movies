@@ -37,7 +37,7 @@ DetailsTitle.propTypes = {
 };
 
 Title.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 Text.propTypes = {

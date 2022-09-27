@@ -1,3 +1,4 @@
+import { Title } from 'components/PageTitle/Titles';
 import { getFilmPostersById } from 'components/TheMoviesApi/MoviesAPI';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -16,7 +17,7 @@ export const Posters = () => {
   }, [movieId]);
 
   if (images.length === 0) {
-    return <p>No posters for this movie</p>;
+    return <Title text="No posters for this movie" />;
   }
 
   return (

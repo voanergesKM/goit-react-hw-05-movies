@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 import { NavLink } from 'components/Link/NavigateLink';
 import { Title } from 'components/PageTitle/Titles';
 import { AdditionalWrapper, AdditionaNavlList } from './AdditionalInf.styled';
+import { Suspense } from 'react';
+import { Loader } from 'components/Loader/PageLoader';
 
 const navItems = [
   { href: 'cast', text: 'Cast' },
@@ -20,7 +22,9 @@ export const Additional = () => {
           </li>
         ))}
       </AdditionaNavlList>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </AdditionalWrapper>
   );
 };

@@ -9,6 +9,7 @@ export const DescriptionStyled = styled.div`
 
   @media screen and (min-width: 768px) {
     display: flex;
+    padding: 32px;
 
     gap: 24px;
   }
@@ -21,6 +22,9 @@ export const DescriptionWrapper = styled.div`
 `;
 
 export const Poster = styled.img`
-  max-width: 240px;
-  flex-shrink: 1;
+  max-width: 320px;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 16px;
+  }
 `;

@@ -7,7 +7,7 @@ import { DetailsTitle } from 'components/PageTitle/Titles';
 import { Description } from 'components/Description/FilmDescription';
 import { Additional } from 'components/AdditionalInf/AdditionalInf';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [filmDetails, setFilmDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
@@ -40,3 +40,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails;

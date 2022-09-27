@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Photo, StyledItem, StyledList, Description } from './FilmsCast.styled';
 import { getMovieCreditsById } from 'components/TheMoviesApi/MoviesAPI';
+import { Title } from 'components/PageTitle/Titles';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
@@ -14,7 +15,9 @@ export const Cast = () => {
   }, [movieId]);
 
   if (cast.length === 0) {
-    return <p>Sorry, we don't have any cast information at the moment</p>;
+    return (
+      <Title>Sorry, we don't have any cast information at the moment</Title>
+    );
   }
 
   return (
@@ -39,3 +42,5 @@ export const Cast = () => {
     </StyledList>
   );
 };
+
+export default Cast;

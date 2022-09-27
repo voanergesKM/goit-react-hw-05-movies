@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { MoviesList } from 'components/MoviesList/List';
 import { StyledBtn, StyledInput, SearchBar } from './MoviesPage.styled';
 import { getFilmsByKeywords } from 'components/TheMoviesApi/MoviesAPI';
@@ -29,13 +29,12 @@ export const Movies = () => {
   };
 
   return (
-    <>
+    <main>
       <SearchBar onSubmit={onSearchFilm}>
         <StyledInput name="search" autoComplete="off" />
         <StyledBtn type="submit">Search</StyledBtn>
       </SearchBar>
       {filmList.length > 0 && <MoviesList movies={filmList} />}
-      <Outlet />
-    </>
+    </main>
   );
 };

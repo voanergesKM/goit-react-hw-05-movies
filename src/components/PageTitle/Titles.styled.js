@@ -19,7 +19,7 @@ export const StyledDescription = styled.p`
   font-size: 16px;
   line-height: 1.5;
   margin-left: 8px;
-  max-width: 600px;
+  max-width: 800px;
 
   span {
     display: inline-block;
