@@ -10,7 +10,7 @@ export const Posters = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
-    getFilmPostersById(movieId)
+    getFilmPostersById(Number(movieId))
       .then(({ backdrops }) => setImages(backdrops))
       .catch(error => console.log(error));
   }, [movieId]);

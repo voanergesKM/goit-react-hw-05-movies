@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import { NavLinkStyled, LinkStyled } from './NavigateLink.styled';
 
-export const Link = ({ icon: Icon, text, location }) => {
+export const Link = ({ icon: Icon, text, to }) => {
   return (
-    <LinkStyled to={location}>
+    <LinkStyled to={to}>
       {Icon}
       {text}
     </LinkStyled>
   );
 };
 
-export const NavLink = ({ text, location, end }) => {
+export const NavLink = ({ text, to, end }) => {
   return (
-    <NavLinkStyled end={end} to={location}>
+    <NavLinkStyled end={end} to={to}>
       {text}
     </NavLinkStyled>
   );
@@ -25,5 +25,5 @@ Link.propTypes = {
 
 NavLink.propTypes = {
   text: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 };

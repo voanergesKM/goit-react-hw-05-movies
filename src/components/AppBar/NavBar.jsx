@@ -7,8 +7,8 @@ export const AppBar = () => {
     <>
       <StyledHeader>
         <Nav>
-          <NavLink location="/" text="Home" end />
-          <NavLink location="movies" text="Films" />
+          <NavLink to="/" text="Home" end />
+          <NavLink to="movies" text="Films" />
         </Nav>
       </StyledHeader>
       <Outlet />

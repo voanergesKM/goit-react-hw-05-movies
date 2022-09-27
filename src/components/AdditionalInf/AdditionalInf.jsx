@@ -16,7 +16,7 @@ export const Additional = () => {
       <AdditionaNavlList>
         {navItems.map(({ href, text }) => (
           <li key={href}>
-            <NavLink location={href} text={text} />
+            <NavLink to={href} text={text} />
           </li>
         ))}
       </AdditionaNavlList>

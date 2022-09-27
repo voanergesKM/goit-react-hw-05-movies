@@ -12,7 +12,7 @@ export const Reviews = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
-    getMovieRewievsById(movieId)
+    getMovieRewievsById(Number(movieId))
       .then(({ results }) => setRewievs(results))
       .catch(error => console.log(error));
   }, [movieId]);

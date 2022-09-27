@@ -8,7 +8,7 @@ export const Cast = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
-    getMovieCreditsById(movieId)
+    getMovieCreditsById(Number(movieId))
       .then(({ cast }) => setCast(cast))
       .catch(error => console.log(error));
   }, [movieId]);

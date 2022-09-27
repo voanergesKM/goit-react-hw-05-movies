@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import { getFilmsDetailsById } from 'components/TheMoviesApi/MoviesAPI';
@@ -11,9 +11,10 @@ export const MovieDetails = () => {
   const [filmDetails, setFilmDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
+  const locationRef = useRef(location);
 
   useEffect(() => {
-    getFilmsDetailsById(movieId)
+    getFilmsDetailsById(Number(movieId))
       .then(setFilmDetails)
       .catch(error => console.log(error));
   }, [movieId]);
@@ -29,7 +30,7 @@ export const MovieDetails = () => {
   return (
     <main>
       <Link
-        location={location.state?.from ?? '/'}
+        to={locationRef.current.state?.from ?? '/'}
         text={'Go back'}
         icon={<BiArrowBack />}
       />
