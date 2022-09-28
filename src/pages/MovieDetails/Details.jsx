@@ -10,8 +10,7 @@ import { Additional } from 'components/AdditionalInf/AdditionalInf';
 const MovieDetails = () => {
   const [filmDetails, setFilmDetails] = useState(null);
   const { movieId } = useParams();
-  const location = useLocation();
-  const locationRef = useRef(location);
+  const location = useRef(useLocation());
 
   useEffect(() => {
     getFilmsDetailsById(Number(movieId))
@@ -19,23 +18,22 @@ const MovieDetails = () => {
       .catch(error => console.log(error));
   }, [movieId]);
 
-  if (!filmDetails) {
-    return (
-      <DetailsTitle>
-        We don't have any information about this movie
-      </DetailsTitle>
-    );
-  }
-
   return (
     <main>
       <Link
-        to={locationRef.current.state?.from ?? '/'}
+        to={location.current.state?.from ?? '/'}
         text={'Go back'}
         icon={<BiArrowBack />}
       />
 
-      <Description movie={filmDetails} />
+      {filmDetails ? (
+        <Description movie={filmDetails} />
+      ) : (
+        <DetailsTitle>
+          We don't have any information about this movie
+        </DetailsTitle>
+      )}
+
       <Additional />
     </main>
   );
