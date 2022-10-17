@@ -1,22 +1,25 @@
-import {
-  Container,
-  HomeLink,
-  PageTitle,
-  Thumb,
-  Title,
-  Wrapper,
-} from './404.styled';
+import { Box } from 'components/Box';
+import { HomeLink, PageTitle, Container, Title } from './404.styled';
 
 export const NotFoundPage = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Thumb>
+    <Box position="relative" height="100vh">
+      <Box
+        position="absolute"
+        left="50%"
+        top="50%"
+        maxWidth="520px"
+        width="100%"
+        lineHeight="1.4"
+        textAlign="center"
+        style={{ transform: 'translate(-50%, -50%)' }}
+      >
+        <Container>
           <PageTitle>Oops!</PageTitle>
           <Title>404 - The Page can't be found</Title>
-        </Thumb>
+        </Container>
         <HomeLink to="/">Go TO Homepage</HomeLink>
-      </Wrapper>
-    </Container>
+      </Box>
+    </Box>
   );
 };

@@ -15,12 +15,6 @@ export const DescriptionStyled = styled.div`
   }
 `;
 
-export const DescriptionWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-`;
-
 export const Poster = styled.img`
   max-width: 320px;
 

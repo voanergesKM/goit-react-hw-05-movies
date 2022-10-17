@@ -1,10 +1,10 @@
 import { AppBar } from 'components/AppBar/NavBar';
-import { StyledLayout } from './LayoutContaineer.styled';
+import { Box } from 'components/Box';
 
 export const Layout = () => {
   return (
-    <StyledLayout>
+    <Box maxWidth="1400px" px="15px" pb="16px">
       <AppBar />
-    </StyledLayout>
+    </Box>
   );
 };

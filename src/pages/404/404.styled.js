@@ -3,23 +3,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-  height: 100vh;
-`;
-
-export const Wrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  max-width: 520px;
-  width: 100%;
-  line-height: 1.4;
-  text-align: center;
-
-  transform: translate(-50%, -50%);
-`;
-
-export const Thumb = styled.div`
-  position: relative;
   height: 148px;
   margin: 0px auto 10px;
   z-index: -1;

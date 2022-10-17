@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'components/Link/NavigateLink';
 import { Title } from 'components/PageTitle/Titles';
-import { AdditionalWrapper, AdditionaNavlList } from './AdditionalInf.styled';
 import { Suspense } from 'react';
 import { Loader } from 'components/Loader/PageLoader';
+import { Box } from 'components/Box';
 
 const navItems = [
   { href: 'cast', text: 'Cast' },
@@ -13,18 +13,22 @@ const navItems = [
 
 export const Additional = () => {
   return (
-    <AdditionalWrapper>
+    <Box
+      p="16px"
+      boxShadow="rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
+    >
       <Title text={'Aditional information'} />
-      <AdditionaNavlList>
+      <Box as="ul" display="flex" gridGap="16px" mb="24px">
         {navItems.map(({ href, text }) => (
           <li key={href}>
             <NavLink to={href} text={text} />
           </li>
         ))}
-      </AdditionaNavlList>
+      </Box>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </AdditionalWrapper>
+    </Box>
   );
 };

@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledList = styled.ul`
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  gap: 12px; */
-
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(auto-fill, 220px);

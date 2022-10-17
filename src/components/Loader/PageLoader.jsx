@@ -1,9 +1,9 @@
+import { Box } from 'components/Box';
 import { RotatingLines } from 'react-loader-spinner';
-import { StyledLoader } from './PageLoader.styled';
 
 export const Loader = () => {
   return (
-    <StyledLoader>
+    <Box display="flex" alignItems="center" justifyContent="center">
       <RotatingLines
         strokeColor="orangered"
         strokeWidth="5"
@@ -11,6 +11,6 @@ export const Loader = () => {
         width="48"
         visible={true}
       />
-    </StyledLoader>
+    </Box>
   );
 };

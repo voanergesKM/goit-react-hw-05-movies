@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import { DetailsTitle, MainTitle, Text } from 'components/PageTitle/Titles';
-import {
-  DescriptionWrapper,
-  Poster,
-  DescriptionStyled,
-} from './FilmDescription.styled';
+import { Poster, DescriptionStyled } from './FilmDescription.styled';
+import { Box } from 'components/Box';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -23,7 +20,7 @@ export const Description = ({ movie }) => {
         width="240px"
         height="auto"
       />
-      <DescriptionWrapper>
+      <Box display="flex" justifyContent="space-around" flexDirection="column">
         <MainTitle text={`${title} (${release_date.slice(0, 4)})`} />
         <Text text={'User score:'}>
           <span>{Number.parseInt(popularity)}%</span>
@@ -32,7 +29,7 @@ export const Description = ({ movie }) => {
         <Text text={overview} />
         <DetailsTitle text={'Genres'} />
         <Text text={genreList.join(', ')} />
-      </DescriptionWrapper>
+      </Box>
     </DescriptionStyled>
   );
 };

@@ -1,12 +1,13 @@
+import { Box } from 'components/Box';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import { StyledItem, StyledLink, StyledList } from './List.styled';
+import { StyledItem, StyledLink } from './List.styled';
 
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <StyledList>
+    <Box as={'ul'} ml="24px">
       {movies.map(({ id, title, release_date }) => (
         <StyledItem key={id}>
           <StyledLink to={`/movies/${id}`} state={{ from: location }}>
@@ -14,7 +15,7 @@ export const MoviesList = ({ movies }) => {
           </StyledLink>
         </StyledItem>
       ))}
-    </StyledList>
+    </Box>
   );
 };
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledRewievTitle = styled.h4`
   margin-bottom: 16px;
 `;
+
 export const StyledRewiev = styled.p`
   line-height: 1.5;
   margin-left: 16px;
